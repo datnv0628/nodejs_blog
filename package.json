@@ -1,37 +1,25 @@
 {
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-handlebars": "^8.0.3",
+    "sass": "^1.91.0"
+  },
   "name": "blog",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon --inspect src/index.js",
-    "build:css": "sass src/resources/scss:src/public/css",
-    "watch:css": "sass --watch src/resources/scss:src/public/css",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/datnv0628/nodejs_blog.git"
   },
-  "keywords": [
-    "datnguyen",
-    "blog",
-    "blog",
-    "datnguyen"
-  ],
-  "author": "Dat Nguyen",
+  "author": "DatNguyen",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/datnv0628/nodejs_blog/issues"
   },
-  "homepage": "https://github.com/datnv0628/nodejs_blog#readme",
-  "dependencies": {
-    "express": "^5.1.0",
-    "express-handlebars": "^8.0.3",
-    "morgan": "^1.10.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.10",
-    "sass": "^1.90.0"
-  }
+  "homepage": "https://github.com/datnv0628/nodejs_blog#readme"
 }
