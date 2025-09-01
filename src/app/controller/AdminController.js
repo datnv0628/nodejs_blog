@@ -12,8 +12,8 @@ class AdminController {
       const { account, password } = req.body;
       const check = await Account.findOne({ account, password });
       if (check) {
-        res.redirect("/admin");
-        req.session.user = check;
+        req.session.user = check;      // ← Set session TRƯỚC
+        res.redirect("/admin");        // ← Redirect SAU
       } else {
         res.send("not found");
       }
