@@ -11,9 +11,12 @@ class AdminController {
     try {
       const { account, password } = req.body;
       const check = await Account.findOne({ account, password });
-      check
-        ? res.render("admin/main", { layout: "dashboard" })
-        : res.send("not found");
+      if (check) {
+        res.redirect("/admin");
+        req.session.user = check;
+      } else {
+        res.send("not found");
+      }
     } catch (error) {
       console.log(error);
     }

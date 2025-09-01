@@ -1,5 +1,6 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
+const session = require("express-session");
 const path = require("path");
 const app = express();
 const port = 3000;
@@ -21,6 +22,15 @@ app.set("views", path.join(__dirname, "resources/views"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.use(
+  session({
+    secret: "secret-key",
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: true },
+  })
+);
 
 route(app);
 
