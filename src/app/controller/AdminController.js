@@ -1,4 +1,4 @@
-const { Account } = require("../models/Course");
+const { Account, Course } = require("../models/Course");
 
 class AdminController {
   show(req, res) {
@@ -20,6 +20,19 @@ class AdminController {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  create(req, res) {
+    res.render("admin/create");
+  }
+
+  store(req, res) {
+    const formData = req.body;
+    const course = new Course(formData);
+    course
+      .save()
+      .then(() => res.redirect("/admin"))
+      .catch((error) => {});
   }
 }
 

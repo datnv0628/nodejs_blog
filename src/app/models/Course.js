@@ -6,6 +6,7 @@ const CourseSchema = new Schema(
   {
     title: { type: String },
     img: { type: String },
+    path: { type: String },
     slug: { type: String, slug: "title", unique: true },
   },
   {

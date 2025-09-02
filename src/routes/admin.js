@@ -6,6 +6,8 @@ const adminController = require("../app/controller/AdminController");
 
 router.get("/", authMiddleware, adminController.show);
 router.get("/login", adminController.login);
+router.get("/create", adminController.create);
 router.post("/check", adminController.check);
+router.post("/store", adminController.store);
 
 module.exports = router;
