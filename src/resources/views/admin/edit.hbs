@@ -1,9 +1,10 @@
 <div class="mt-4">
   <div class="container">
-    <form method="POST" action="/admin/store">
+    <form method="POST" action="/admin/{{course._id}}?_method=PUT">
       <div class="form-group">
         <label for="exampleInputEmail1">Tên Khóa Học</label>
         <input
+          value="{{course.title}}"
           type="text"
           class="form-control"
           name="title"
@@ -14,6 +15,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1">Level</label>
         <input
+          value="{{course.level}}"
           type="text"
           class="form-control"
           name="level"
@@ -24,6 +26,7 @@
       <div class="form-group">
         <label for="exampleInputEmail1">URL</label>
         <input
+          value="{{course.path}}"
           type="text"
           class="form-control"
           name="path"

@@ -9,5 +9,7 @@ router.get("/login", adminController.login);
 router.get("/create", adminController.create);
 router.post("/check", adminController.check);
 router.post("/store", adminController.store);
+router.get("/:id/edit", adminController.edit);
+router.put("/:id", adminController.update);
 
 module.exports = router;

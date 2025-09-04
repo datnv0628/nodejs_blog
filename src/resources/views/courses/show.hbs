@@ -1,1 +1,25 @@
-<h1>Course detail - {{course.title}}</h1>
+<div class="container">
+  <div class="row">
+    <!-- Cột bên trái -->
+    <div class="col-md-3 bg-dark text-white p-3">
+      <h4>Trình độ cơ bản</h4>
+      <h4>Tổng số <b>12</b> bài học</h4>
+      <h4>Thời lượng <b>03 giờ 26 phút</b></h4>
+      <h4>Học mọi lúc mọi nơi</h4>
+    </div>
+
+    <!-- Cột bên phải -->
+    <div class="col-md-8 bg-dark text-white p-3">
+      <iframe
+        width="100%"
+        height="400"
+        src="https://www.youtube.com/embed/{{course.path}}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>

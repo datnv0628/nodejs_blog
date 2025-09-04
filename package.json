@@ -3,9 +3,11 @@
     "express": "^5.1.0",
     "express-handlebars": "^8.0.3",
     "express-session": "^1.18.2",
+    "method-override": "^3.0.0",
     "mongoose": "^8.18.0",
     "mongoose-slug-generator": "^1.0.4",
-    "sass": "^1.91.0"
+    "sass": "^1.91.0",
+    "slugify": "^1.6.6"
   },
   "name": "blog",
   "version": "1.0.0",

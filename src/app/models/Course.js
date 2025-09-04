@@ -1,19 +1,25 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const slug = require("mongoose-slug-generator");
+const slugify = require("slugify");
 
 const CourseSchema = new Schema(
   {
     title: { type: String },
-    img: { type: String },
     path: { type: String },
+    img: { type: String },
+    level: { type: String },
     slug: { type: String, slug: "title", unique: true },
   },
   {
     timestamps: true,
   }
 );
-
+CourseSchema.pre("save", function (next) {
+  if (this.title) {
+    this.slug = slugify(this.title, { lower: true, strict: true });
+  }
+  next();
+});
 const AccountSchema = new Schema({
   account: { type: String },
   password: { type: String },

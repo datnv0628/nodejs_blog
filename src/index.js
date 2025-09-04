@@ -1,9 +1,12 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
 const session = require("express-session");
+const methodOverride = require("method-override");
 const path = require("path");
 const app = express();
 const port = 3000;
+
+app.use(methodOverride("_method"));
 
 const route = require("./routes");
 const db = require("./config/db");
@@ -15,6 +18,9 @@ app.engine(
   "hbs",
   engine({
     extname: ".hbs",
+    helpers: {
+      sum: (index) => index + 1,
+    },
   })
 );
 app.set("view engine", "hbs");
