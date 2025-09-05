@@ -11,5 +11,6 @@ router.post("/check", adminController.check);
 router.post("/store", adminController.store);
 router.get("/:id/edit", adminController.edit);
 router.put("/:id", adminController.update);
+router.delete("/:id/delete", adminController.delete);
 
 module.exports = router;

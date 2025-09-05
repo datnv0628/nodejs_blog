@@ -65,6 +65,12 @@ class AdminController {
       .then(() => res.redirect("/admin"))
       .catch(next);
   }
+
+  delete(req, res, next){
+    Course.deleteOne({_id: req.params.id})
+      .then(() => res.redirect("/admin"))
+      .catch(next);
+  }
 }
 
 module.exports = new AdminController();
