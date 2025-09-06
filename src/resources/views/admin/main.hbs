@@ -1,6 +1,7 @@
 <div class="mt-4">
   <div class="container">
     <h1>My Courses</h1>
+    <a href="/admin/trash">Thùng rác</a>
     <table class="table">
       <thead>
         <tr>
@@ -35,6 +36,13 @@
             </td>
           </tr>
         </tbody>
+      {{else}}
+        <tr>
+          <td colspan="4" class="text-center">Bạn chưa tạo khóa học nào.<a
+              href="/admin/create"
+            >Tạo ngay!</a>
+          </td>
+        </tr>
       {{/each}}
     </table>
   </div>
@@ -81,22 +89,11 @@
 <form name="deleteModal" method="POST"></form>
 
 <script>
-  var courseId;
-  const deleteForm = document.forms['deleteModal'];
-  const deleteBtn = document.querySelector("#deleteBtn");
-
-
-
+  var courseId; const deleteForm = document.forms['deleteModal']; const
+  deleteBtn = document.querySelector("#deleteBtn");
   document.addEventListener('DOMContentLoaded', function() {
-  $('#deleteModal').on('show.bs.modal', function (event) { 
-    var button = $(event.relatedTarget); 
-    courseId = button.data('id'); 
-    }); 
-  }); 
-
- 
-  deleteBtn.addEventListener("click", function(){ 
-    deleteForm.action = 'admin/' + courseId + '/delete?_method=DELETE'
-    deleteForm.submit();  
-  })
+  $('#deleteModal').on('show.bs.modal', function (event) { var button =
+  $(event.relatedTarget); courseId = button.data('id'); }); });
+  deleteBtn.addEventListener("click", function(){ deleteForm.action = '/admin/'
+  + courseId + '/delete?_method=DELETE'; deleteForm.submit(); })
 </script>

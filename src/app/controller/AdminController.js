@@ -66,8 +66,31 @@ class AdminController {
       .catch(next);
   }
 
-  delete(req, res, next){
-    Course.deleteOne({_id: req.params.id})
+  delete(req, res, next) {
+    Course.delete({ _id: req.params.id })
+      .then(() => res.redirect("/admin"))
+      .catch(next);
+  }
+
+  trash(req, res, next) {
+    Course.findDeleted({})
+      .then((course) => {
+        res.render("admin/trash", {
+          layout: "dashboard",
+          courses: multiDataToObject(course),
+        });
+      })
+      .catch(next);
+  }
+
+  deleteForce(req, res, next) {
+    Course.deleteOne({ _id: req.params.id })
+      .then(() => res.redirect("/admin/trash"))
+      .catch(next);
+  }
+
+  restore(req, res, next) {
+    Course.restore({ _id: req.params.id })
       .then(() => res.redirect("/admin"))
       .catch(next);
   }
